@@ -1,5 +1,5 @@
 # ffmpeg-progress
-
+![Go](https://github.com/AlexanderOkhrimenko/ffmpeg-progress/workflows/Go/badge.svg?branch=master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/AlexanderOkhrimenko/ffmpeg-progress)](https://goreportcard.com/report/github.com/AlexanderOkhrimenko/ffmpeg-progress)
 
 Reads data from a TCP connection about the progress of the ffmpeg encoding process
