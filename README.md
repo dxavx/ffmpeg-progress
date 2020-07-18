@@ -1,5 +1,7 @@
 # ffmpeg-progress
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/AlexanderOkhrimenko/ffmpeg-progress)](https://goreportcard.com/report/github.com/AlexanderOkhrimenko/ffmpeg-progress)
+
 Reads data from a TCP connection about the progress of the ffmpeg encoding process
 
 1. ```go run main.go``` - application will start listening to the 9090 port, without this step running ````ffmpeg```` will give an error.
