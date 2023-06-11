@@ -4,16 +4,14 @@ import (
 	"bufio"
 	"fmt"
 	"log"
-	"math/rand"
 	"net"
 	"regexp"
 	"strconv"
-	"time"
 )
 
 // Test duration of the material.
 // In a real program you first need to know the duration of the material with the ffprobe command
-const full_duration = 300.000000
+const fullDuration = 300.000000
 
 func main() {
 
@@ -24,7 +22,6 @@ func main() {
 		return
 	}
 	defer l.Close()
-	rand.Seed(time.Now().Unix())
 
 	for {
 		c, err := l.Accept()
@@ -42,7 +39,6 @@ func handleConnection(c net.Conn) {
 	for {
 		// Read 256 bytes to the 'd' character
 		s1, err := bufio.NewReaderSize(c, 256).ReadBytes('d')
-
 		if err != nil {
 			fmt.Println(err)
 			return
@@ -61,13 +57,13 @@ func handleConnection(c net.Conn) {
 		}
 
 		// Consistent use of regular expressions
-		t1 := reg1.Find([]byte(string(s1)))
-		t2 := reg2.Find([]byte(string(t1)))
+		t1 := reg1.Find(s1)
+		t2 := reg2.Find(t1)
 
-		real_time, err := strconv.ParseFloat(string(t2), 64)
+		realTime, err := strconv.ParseFloat(string(t2), 64)
 
 		// Calculating the completion percentage
-		complete := int(((real_time / 1000000) * 100) / full_duration)
+		complete := int(((realTime / 1000000) * 100) / fullDuration)
 
 		fmt.Println(complete)
 
